@@ -2,11 +2,13 @@ public class Player {
     public String player_name;
     public int level;
     public int life;
+    public  int dano;
 
-    public Player(String player_name, int level, int life) {
+    public Player(String player_name, int level, int life, int dano) {
         this.player_name = player_name;
         this.level = level;
         this.life = life;
+        this.dano = dano;
     }
 
     public String getName() {
@@ -19,6 +21,14 @@ public class Player {
 
     public int getlife() {
 		return life;
+	}
+
+    public void setdano(int dano) {
+		this.dano = dano * level;
+	}
+
+    public int getdano() {
+		return dano;
 	}
 
     public void setlevel(int level) {
@@ -35,6 +45,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Username = " + player_name + "|| Nivel = " + level + "|| Vida = " + life ;
+        return "Username = " + player_name + " || Nivel = " + level + " || Vida = " + life + " || Dano = " + dano;
     }
 }

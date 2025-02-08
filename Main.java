@@ -17,9 +17,11 @@ public class Main {
             for (int count = 0; count < qntd_player_int; count++) {
               System.out.print("Player Name: ");
               String player_name = scanner.nextLine();
+              Random rand = new Random();
+              int dano = rand.nextInt(10) * 5;
               int level = 1;
               int vida = level * 30;
-              Players.add(new Player(player_name, level, vida));
+              Players.add(new Player(player_name, level, vida, dano));
               System.out.println("-".repeat(20));
             }
 
@@ -40,21 +42,23 @@ public class Main {
             for (NPC NPC : NPCs) {
                 System.out.println(NPC);
             }
-
+            // creat a game loop
             for (Player player : Players) {
                 System.out.println(player);
-                System.out.println("Selecione um NPC para atacar pelo ID (1 a 5): ");
+                System.out.print("Selecione um NPC para atacar pelo ID (1 a 5): ");
                 int idnpc = scanner.nextInt();
+
                 if (idnpc >= 1 && idnpc <= NPCs.size()) {
                     NPC selectedNpc = NPCs.get(idnpc - 1);
                     System.out.println("Você atacou: " + selectedNpc);
-                    
-                    System.out.print("Quanto de dano você deseja causar? ");
-                    int dano = scanner.nextInt();
-                    
-                    selectedNpc.recebeDano(dano);
+                    int dano_player = player.getdano();
+                    System.out.println("Seu Dano : " + dano_player);
+                    selectedNpc.recebeDano(dano_player);
                     
                     System.out.println("status : " + selectedNpc);
+                    for (NPC NPC : NPCs) {
+                        System.out.println(NPC);
+                    }
                 } else {
                     System.out.println("ID de NPC inválido.");
                 }
