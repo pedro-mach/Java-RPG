@@ -9,6 +9,10 @@ public class Player {
         this.life = life;
     }
 
+    public String getName() {
+        return player_name;
+    }
+
     public void setlife(int life) {
 		this.life = life;
 	}

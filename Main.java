@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args){
             List<NPC> NPCs = new ArrayList<>();
             List<Player> Players = new ArrayList<>();
+            Scanner scanner = new Scanner(System.in);
 
-            try (Scanner scanner = new Scanner(System.in)){
             System.out.print("Quantos Players: ");
             int qntd_player_int = scanner.nextInt();
             scanner.nextLine();
@@ -27,7 +27,6 @@ public class Main {
             for (Player player : Players) {
                 System.out.println(player);
             }
-        }
     
             System.out.println("-".repeat(20));
             for (int i = 1; i <= 5; i++) {
@@ -42,9 +41,24 @@ public class Main {
                 System.out.println(NPC);
             }
 
-            
+            for (Player player : Players) {
+                System.out.println(player);
+                System.out.println("Selecione um NPC para atacar pelo ID (1 a 5): ");
+                int idnpc = scanner.nextInt();
+                if (idnpc >= 1 && idnpc <= NPCs.size()) {
+                    NPC selectedNpc = NPCs.get(idnpc - 1);
+                    System.out.println("Você atacou: " + selectedNpc);
+                    
+                    System.out.print("Quanto de dano você deseja causar? ");
+                    int dano = scanner.nextInt();
+                    
+                    selectedNpc.recebeDano(dano);
+                    
+                    System.out.println("status : " + selectedNpc);
+                } else {
+                    System.out.println("ID de NPC inválido.");
+                }
+            }
+            scanner.close();
+        }
     }
-}
-
-
-

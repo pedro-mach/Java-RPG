@@ -26,8 +26,8 @@ public class NPC {
 		return level;
 	}
 
-    public void Recebedano ( int dano){
-        life -= dano;
+    public void recebeDano(int quantidadeDano) {
+        life = Math.max(0, life - quantidadeDano);
     }
 
     @Override
