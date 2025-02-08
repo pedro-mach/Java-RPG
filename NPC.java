@@ -10,8 +10,28 @@ public class NPC {
         this.life = life;
     }
 
+    public void setlife(int life) {
+		this.life = life;
+	}
+
+    public int getlife() {
+		return life;
+	}
+
+    public void setlevel(int level) {
+		this.level = level;
+	}
+
+    public int getlevel() {
+		return level;
+	}
+
+    public void Recebedano ( int dano){
+        life -= dano;
+    }
+
     @Override
     public String toString() {
-        return "NPC - id= " + id + ", Nivel = " + level + ", Vida = " + life;
+        return "NPC - id= " + id + "|| Nivel = " + level + "|| Vida = " + life;
     }
 }

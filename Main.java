@@ -1,14 +1,14 @@
-import java.util.Scanner;
-import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
             List<NPC> NPCs = new ArrayList<>();
             List<Player> Players = new ArrayList<>();
-            Scanner scanner = new Scanner(System.in);
 
+            try (Scanner scanner = new Scanner(System.in)){
             System.out.print("Quantos Players: ");
             int qntd_player_int = scanner.nextInt();
             scanner.nextLine();
@@ -27,13 +27,13 @@ public class Main {
             for (Player player : Players) {
                 System.out.println(player);
             }
+        }
     
-            scanner.close();
             System.out.println("-".repeat(20));
             for (int i = 1; i <= 5; i++) {
                 Random rand = new Random();
                 int level = rand.nextInt(20) + 1;
-                int vida = level * 25;;
+                int vida = level * 25;
                 NPCs.add(new NPC(i, level, vida));
             }
 
@@ -41,6 +41,8 @@ public class Main {
             for (NPC NPC : NPCs) {
                 System.out.println(NPC);
             }
+
+            
     }
 }
 
