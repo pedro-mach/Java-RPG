@@ -2,7 +2,7 @@ public class Player {
     public String player_name;
     public int level;
     public int life;
-    public  int dano;
+    public int dano;
 
     public Player(String player_name, int level, int life, int dano) {
         this.player_name = player_name;

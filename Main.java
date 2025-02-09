@@ -18,9 +18,9 @@ public class Main {
               System.out.print("Player Name: ");
               String player_name = scanner.nextLine();
               Random rand = new Random();
-              int dano = rand.nextInt(10) * 5;
+              int dano = rand.nextInt(10, 15) * 2;
               int level = 1;
-              int vida = level * 30;
+              int vida = 50 * (rand.nextInt(2,5));
               Players.add(new Player(player_name, level, vida, dano));
               System.out.println("-".repeat(20));
             }
@@ -35,7 +35,9 @@ public class Main {
                 Random rand = new Random();
                 int level = rand.nextInt(20) + 1;
                 int vida = level * 25;
-                NPCs.add(new NPC(i, level, vida));
+                int damage_var = rand.nextInt(1, 10);
+                int dano = 2 * (level * damage_var);
+                NPCs.add(new NPC(i, level, vida, dano));
             }
 
             System.out.println("Lista NPCs");
@@ -43,17 +45,19 @@ public class Main {
                 System.out.println(NPC);
             }
             // creat a game loop
+            while (true) { 
             for (Player player : Players) {
                 System.out.println(player);
-                System.out.print("Selecione um NPC para atacar pelo ID (1 a 5): ");
+                System.out.println("Selecione um NPC pelo ID (1 a 5) para lutar:  ");
                 int idnpc = scanner.nextInt();
-
                 if (idnpc >= 1 && idnpc <= NPCs.size()) {
                     NPC selectedNpc = NPCs.get(idnpc - 1);
                     System.out.println("Você atacou: " + selectedNpc);
                     int dano_player = player.getdano();
                     System.out.println("Seu Dano : " + dano_player);
                     selectedNpc.recebeDano(dano_player);
+                    int dano_npc = selectedNpc.getdano();
+                    player.Recebedano(dano_npc);
                     
                     System.out.println("status : " + selectedNpc);
                     for (NPC NPC : NPCs) {
@@ -62,7 +66,12 @@ public class Main {
                 } else {
                     System.out.println("ID de NPC inválido.");
                 }
+                if (player.life <= 0){
+                    System.out.println("Player " + player.player_name + " morreu");
+                } 
             }
-            scanner.close();
+        scanner.close();
         }
+        
     }
+}
