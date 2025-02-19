@@ -1,8 +1,10 @@
+package game.classes;
+
 public class Player {
     public String player_name;
     public int level;
     public int life;
-    public  int dano;
+    public int dano;
 
     public Player(String player_name, int level, int life, int dano) {
         this.player_name = player_name;
@@ -16,28 +18,28 @@ public class Player {
     }
 
     public void setlife(int life) {
-		this.life = life;
-	}
+        this.life = life;
+    }
 
     public int getlife() {
-		return life;
-	}
+        return life;
+    }
 
     public void setdano(int dano) {
-		this.dano = dano * level;
-	}
+        this.dano = dano * level;
+    }
 
     public int getdano() {
-		return dano;
-	}
+        return dano;
+    }
 
     public void setlevel(int level) {
-		this.level = level;
-	}
+        this.level = level;
+    }
 
     public int getlevel() {
-		return level;
-	}
+        return level;
+    }
 
     public void Recebedano ( int dano){
         life -= dano;
@@ -48,3 +50,4 @@ public class Player {
         return "Username = " + player_name + " || Nivel = " + level + " || Vida = " + life + " || Dano = " + dano;
     }
 }
+
