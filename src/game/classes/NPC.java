@@ -1,3 +1,4 @@
+package game.classes;
 public class NPC {
 
     public int id;
@@ -13,24 +14,24 @@ public class NPC {
     }
 
     public void setlife(int life) {
-		this.life = life;
-	}
+        this.life = life;
+    }
 
-    public int getlife() {
-		return life;
-	}
+    public int getLife() {
+        return life;
+    }
 
     public void setlevel(int level) {
-		this.level = level;
-	}
+        this.level = level;
+    }
 
     public int getlevel() {
-		return level;
-	}
-    
+        return level;
+    }
+
     public int getdano() {
-		return dano;
-	}
+        return dano;
+    }
 
     public void recebeDano(int quantidadeDano) {
         life = Math.max(0, life - quantidadeDano);
